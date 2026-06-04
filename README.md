@@ -18,7 +18,7 @@ This Terraform module creates structured lightsail for Azure resources with spec
 
 ```hcl
 module "lightsail" {
-source               = "git::https://github.com/opsstation/terraform-aws-lightsail.git?ref=v1.0.0"
+source               = "git::https://github.com/chahalvikas2022/terraform-aws-lightsail.git"
 environment          = "test"
 name                 = "lightsail"
 label_order          = ["name", "environment"]
@@ -52,7 +52,7 @@ Please ensure you specify the correct 'source' path for the module.
 - 'repository' :  Terraform current module repo.
 - 'availability_zone' :  The Availability Zone in which to create your instance.
 - 'blueprint_id' :  The bundle of specification information.
-- 'managedby' : ManagedBy, eg 'opsstation'.
+- 'managedby' : ManagedBy, eg 'vikas'.
 - 'blueprint_id' : The ID for a virtual private server image.
 - 'key_pair_name' : The key name to use for the instance.
 
@@ -63,14 +63,14 @@ Please ensure you specify the correct 'source' path for the module.
 - Other relevant security group outputs (modify as needed).
 
 # Examples
-For detailed examples on how to use this module, please refer to the '[example](https://github.com/opsstation/terraform-aws-lightsail/tree/master/_example)' directory within this repository.
+For detailed examples on how to use this module, please refer to the '[example](https://github.com/chahalvikas2022/terraform-aws-lightsail/tree/master/_example)' directory within this repository.
 
 ## Authors
 Your Name
 Replace '[License Name]' and '[Your Name]' with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/opsstation/terraform-aws-lightsail/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/chahalvikas2022/terraform-aws-lightsail/blob/master/LICENSE) file for details.
 
 
 
@@ -90,9 +90,9 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_labels"></a> [labels](#module\_labels) | git::https://github.com/opsstation/terraform-aws-labels.git | v1.0.0 |
+| Name | Source                                                                  | Version |
+|------|-------------------------------------------------------------------------|---------|
+| <a name="module_labels"></a> [labels](#module\_labels) | git::https://github.com/chahalvikas2022/terraform-multicloud-labels.git | v1.0.0 |
 
 ## Resources
 
@@ -107,29 +107,29 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_attributes"></a> [attributes](#input\_attributes) | Additional attributes (e.g. `1`). | `list(any)` | `[]` | no |
-| <a name="input_availability_zone"></a> [availability\_zone](#input\_availability\_zone) | The Availability Zone in which to create your instance | `string` | `"us-east-1a"` | no |
-| <a name="input_blueprint_id"></a> [blueprint\_id](#input\_blueprint\_id) | The ID for a virtual private server image | `string` | `"ubuntu_20_04"` | no |
-| <a name="input_bundle_id"></a> [bundle\_id](#input\_bundle\_id) | The bundle of specification information | `string` | `"nano_2_0"` | no |
-| <a name="input_create_static_ip"></a> [create\_static\_ip](#input\_create\_static\_ip) | Create and attach a statis IP to the instance | `bool` | `false` | no |
-| <a name="input_delimiter"></a> [delimiter](#input\_delimiter) | Delimiter to be used between `organization`, `environment`, `name` and `attributes`. | `string` | `"-"` | no |
-| <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | This is the name of the resource. | `string` | `""` | no |
-| <a name="input_environment"></a> [environment](#input\_environment) | Environment, e.g. 'prod', 'staging', 'dev', 'pre-prod', 'UAT' | `string` | n/a | yes |
-| <a name="input_instance_count"></a> [instance\_count](#input\_instance\_count) | Number of instances to launch. | `number` | `1` | no |
-| <a name="input_instance_enabled"></a> [instance\_enabled](#input\_instance\_enabled) | Flag to control the instance creation. | `bool` | `true` | no |
-| <a name="input_key_pair_name"></a> [key\_pair\_name](#input\_key\_pair\_name) | The key name to use for the instance. | `string` | `""` | no |
-| <a name="input_key_path"></a> [key\_path](#input\_key\_path) | Public key path  (e.g. `~/.ssh/id_rsa.pub`). | `string` | `""` | no |
-| <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. `name`,`application`. | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre> | no |
-| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg 'opsstation'. | `string` | `"opsstation"` | no |
-| <a name="input_name"></a> [name](#input\_name) | Name  (e.g. `app` or `cluster`). | `string` | `""` | no |
-| <a name="input_pgp_key"></a> [pgp\_key](#input\_pgp\_key) | Flag to control the instance creation. | `string` | `""` | no |
-| <a name="input_port_info"></a> [port\_info](#input\_port\_info) | n/a | <pre>list(object({<br>    protocol = string<br>    port     = number<br>    cidrs    = list(string)<br>  }))</pre> | `null` | no |
-| <a name="input_public_key"></a> [public\_key](#input\_public\_key) | The public key material. This public key will be imported into Lightsail. | `string` | `""` | no |
-| <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo | `string` | `"https://github.com/opsstation/terraform-aws-lightsail"` | no |
-| <a name="input_use_default_key_pair"></a> [use\_default\_key\_pair](#input\_use\_default\_key\_pair) | Default key pair name will be used, you must keep 'key\_pair\_name' empty | `bool` | `true` | no |
-| <a name="input_user_data"></a> [user\_data](#input\_user\_data) | Single lined launch script as a string to configure server with additional user data. | `string` | `""` | no |
+| Name | Description                                                                           | Type | Default                                                        | Required |
+|------|---------------------------------------------------------------------------------------|------|----------------------------------------------------------------|:--------:|
+| <a name="input_attributes"></a> [attributes](#input\_attributes) | Additional attributes (e.g. `1`).                                                     | `list(any)` | `[]`                                                           | no |
+| <a name="input_availability_zone"></a> [availability\_zone](#input\_availability\_zone) | The Availability Zone in which to create your instance                                | `string` | `"us-east-1a"`                                                 | no |
+| <a name="input_blueprint_id"></a> [blueprint\_id](#input\_blueprint\_id) | The ID for a virtual private server image                                             | `string` | `"ubuntu_20_04"`                                               | no |
+| <a name="input_bundle_id"></a> [bundle\_id](#input\_bundle\_id) | The bundle of specification information                                               | `string` | `"nano_2_0"`                                                   | no |
+| <a name="input_create_static_ip"></a> [create\_static\_ip](#input\_create\_static\_ip) | Create and attach a statis IP to the instance                                         | `bool` | `false`                                                        | no |
+| <a name="input_delimiter"></a> [delimiter](#input\_delimiter) | Delimiter to be used between `organization`, `environment`, `name` and `attributes`.  | `string` | `"-"`                                                          | no |
+| <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | This is the name of the resource.                                                     | `string` | `""`                                                           | no |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment, e.g. 'prod', 'staging', 'dev', 'pre-prod', 'UAT'                         | `string` | n/a                                                            | yes |
+| <a name="input_instance_count"></a> [instance\_count](#input\_instance\_count) | Number of instances to launch.                                                        | `number` | `1`                                                            | no |
+| <a name="input_instance_enabled"></a> [instance\_enabled](#input\_instance\_enabled) | Flag to control the instance creation.                                                | `bool` | `true`                                                         | no |
+| <a name="input_key_pair_name"></a> [key\_pair\_name](#input\_key\_pair\_name) | The key name to use for the instance.                                                 | `string` | `""`                                                           | no |
+| <a name="input_key_path"></a> [key\_path](#input\_key\_path) | Public key path  (e.g. `~/.ssh/id_rsa.pub`).                                          | `string` | `""`                                                           | no |
+| <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. `name`,`application`.                                               | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre>              | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg 'vikas'.                                                                | `string` | `"vikas"`                                                      | no |
+| <a name="input_name"></a> [name](#input\_name) | Name  (e.g. `app` or `cluster`).                                                      | `string` | `""`                                                           | no |
+| <a name="input_pgp_key"></a> [pgp\_key](#input\_pgp\_key) | Flag to control the instance creation.                                                | `string` | `""`                                                           | no |
+| <a name="input_port_info"></a> [port\_info](#input\_port\_info) | n/a                                                                                   | <pre>list(object({<br>    protocol = string<br>    port     = number<br>    cidrs    = list(string)<br>  }))</pre> | `null`                                                         | no |
+| <a name="input_public_key"></a> [public\_key](#input\_public\_key) | The public key material. This public key will be imported into Lightsail.             | `string` | `""`                                                           | no |
+| <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo                                                         | `string` | `"https://github.com/chahalvikas2022/terraform-aws-lightsail"` | no |
+| <a name="input_use_default_key_pair"></a> [use\_default\_key\_pair](#input\_use\_default\_key\_pair) | Default key pair name will be used, you must keep 'key\_pair\_name' empty             | `bool` | `true`                                                         | no |
+| <a name="input_user_data"></a> [user\_data](#input\_user\_data) | Single lined launch script as a string to configure server with additional user data. | `string` | `""`                                                           | no |
 
 ## Outputs
 
